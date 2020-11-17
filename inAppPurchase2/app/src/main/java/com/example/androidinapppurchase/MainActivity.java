@@ -1,14 +1,14 @@
 package com.example.androidinapppurchase;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -20,7 +20,6 @@ import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.example.androidinapppurchase.Adapter.MyProductAdapter;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -56,7 +55,8 @@ public class MainActivity extends AppCompatActivity implements PurchasesUpdatedL
                     billingClient.querySkuDetailsAsync(params, new SkuDetailsResponseListener() {
                         @Override
                         public void onSkuDetailsResponse(BillingResult billingResult, List<SkuDetails> skuDetailsList) {
-                            if (billingResult.equals(BillingClient.BillingResponseCode.OK)){
+                            //if (billingResult.equals(BillingClient.BillingResponseCode.OK)){
+                            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
                                 loadProductToRecyclerView(skuDetailsList);
                             }
                             else {
@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements PurchasesUpdatedL
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(BillingResult billingResult) {
-                if (billingResult.equals(BillingClient.BillingResponseCode.OK)){
+                //if (billingResult.equals(BillingClient.BillingResponseCode.OK)){
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
                     Toast.makeText(MainActivity.this, "Success to connect to Billing", Toast.LENGTH_SHORT).show();
                 }
                 else {
