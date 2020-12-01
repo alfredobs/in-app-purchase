@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">InAppPurchase-v4</string>
+    <string name="btnComprar">Comprar</string>
+</resources>
