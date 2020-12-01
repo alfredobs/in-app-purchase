@@ -1,4 +1,4 @@
-package com.example.inapppurchase_v4;
+package com.desa.androidinapppurchase;
 
 import org.junit.Test;
 

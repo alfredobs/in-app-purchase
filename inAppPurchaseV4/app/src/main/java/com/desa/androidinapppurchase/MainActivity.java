@@ -1,4 +1,4 @@
-package com.example.inapppurchase_v4;
+package com.desa.androidinapppurchase;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
